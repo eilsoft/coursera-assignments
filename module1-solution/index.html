@@ -1,27 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app='LunchCheck'>
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .error { color: red; }
+      .success { color: green ; }
+      .error-border { border-color: red; }
+      .success-border { border-color: green ; }
+      .input-label { color: #424242; }
     </style>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
   </head>
-<body ng-app='LunchCheck'>
+<body>
    <div class="container">
-     <h1>Lunch Checker</h1>
+     <h1>Lunch Checker</h1><br/>
       <div ng-controller='LunchCheckController'>
          <div class="form-group">
-             <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+            <label class="input-label">* Empty items, i.e., , , are  NOT considered as an item towards to the count</label><br/>
+             <input id="lunch-menu"
+                type="text"
+                ng-model="dishes"
+                placeholder="list comma separated dishes you usually have for lunch"
+                class="form-control {{statusColor}}-border">
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button class="btn btn-default"
+                ng-click="checkLunch()">
+                Check If Too Much
+              </button>
          </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
+         <div class="form-group message {{statusColor}}">
+           {{feedbackMsg}}
          </div>
        </div>
    </div>
