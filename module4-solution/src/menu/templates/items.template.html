@@ -1,0 +1,16 @@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in $ctrl.items">
+            <td class="maxWidth200">{{ item.name }}</td>
+            <td>{{ item.short_name }}</td>
+            <td class="maxWidth300">{{ item.description }}</td>
+        </tr>
+    </tbody
