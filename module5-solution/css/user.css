@@ -1,0 +1,27 @@
+.user-title {
+    color: #ffffff;
+}
+
+.signup-form input {
+    color: #000000;
+    margin-bottom: 10px;
+    width: 250px;
+    padding-left: 3px;
+}
+
+.signup-form button {
+    color: #000000;
+    font-weight: bold;
+}
+
+.signup-form button:disabled {
+    color: lightgrey;
+}
+
+.ng-touched.ng-valid {
+    border: 3px green solid;
+}
+
+.ng-touched.ng-invalid {
+    border: 3px red solid;
+}

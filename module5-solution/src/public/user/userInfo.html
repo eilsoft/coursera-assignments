@@ -1,0 +1,53 @@
+<div class="container">
+
+<div ng-if="!userCtrl.userSigned">
+  <span class="user-title">Not Signed Up Yet.</span>
+  <br/><br/>
+   <a ui-sref="public.signup"> Sign up Now! </a>
+</div>
+
+<div ng-if="userCtrl.userSigned">
+<h3 class="user-title">Your Registration Info</h3>
+<table class="table">
+  <tr>
+    <td>First Name: </td>
+    <td>{{userCtrl.user.firstName}}</td>
+  </tr>
+  <tr>
+    <td>Last Name: </td>
+    <td>{{userCtrl.user.lastName}}</td>
+  </tr>
+  <tr>
+    <td>Email: </td>
+    <td>{{userCtrl.user.email}}</td>
+  </tr>
+  <tr>
+    <td>Phone: </td>
+    <td>{{userCtrl.user.phone}}</td>
+  </tr>
+  <tr>
+    <td>Favorite Dish: </td>
+    <td>
+
+      <div class="col-sm-3" ng-if="userCtrl.user.favorite">
+        <div class="menu-item-photo">
+          <div>{{userCtrl.favoriteInfo.short_name}}</div>
+          <img class="img-responsive" width="250" height="150"
+          ng-src="{{userCtrl.ApiPath}}/images/{{userCtrl.favoriteInfo.short_name}}.jpg" alt="{{$userCtrl.favoriteInfo.name}}">
+        </div>
+      </div>
+      <div class="menu-item-description col-sm-7" ng-if="userCtrl.user.favorite">
+        <h4 class="menu-item-title">{{userCtrl.favoriteInfo.name}}</h4>
+        <p class="menu-item-details">{{userCtrl.favoriteInfo.description}}</p>
+      </div>
+    </div>
+
+
+    </td>
+  </tr>
+
+</table>
+  <br/>
+</div>
+
+</div>

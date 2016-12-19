@@ -1,0 +1,45 @@
+<div class="container">
+<fieldset>
+<legend><span class="user-title">Sign Up for a Newsletter</span></legend>
+<form name="signupForm" class="signup-form" novalidate>
+
+  <input type="text" name="firstName" ng-model="userCtrl.user.firstName" placeholder="first name"
+      required minlength="2"/>
+  <span ng-if="signupForm.firstName.$touched && (signupForm.firstName.$error.minlength || signupForm.firstName.$error.required)">
+    First name must be at least 2 characters long.
+  </span>
+  <br/>
+  <input type="text" name="lastName"  ng-model="userCtrl.user.lastName" placeholder="last name"
+    required minlength="2"/>
+  <span ng-if="signupForm.lastName.$touched && (signupForm.lastName.$error.minlength || signupForm.lastName.$error.required)">
+    Last name must be at least 2 characters long.
+ </span>
+  <br/>
+  <input type="email" name="email" ng-model="userCtrl.user.email" placeholder="email" required/>
+  <span ng-if="signupForm.email.$touched &&  signupForm.email.$invalid">
+    Email must be a valid email address: user@domain format.
+ </span>
+  <br/>
+  <input type="text" name="phone"  ng-model="userCtrl.user.phone" placeholder="phone number ###-###-####"
+    pattern="(\d{3})-(\d{3})-(\d{4})" required/>
+  <span ng-if="signupForm.phone.$touched &&  signupForm.phone.$invalid">
+      Phone must be in the format ###-###-####.
+  </span>
+  <br/>
+
+  <input type="text" name="favorite"
+    ng-model="userCtrl.user.favorite" ng-model-options="{updateOn: 'blur'}"
+    placeholder="favorite dish (menu number)"
+    menu-item-valid />
+  <span ng-if="signupForm.favorite.$touched &&  signupForm.favorite.$invalid">
+      No such menu number exists.
+  </span>
+  <br/>
+
+
+  <button ng-click="userCtrl.signUser()" ng-disabled="signupForm.$invalid ">Sign Up</button>
+  <br/><br/>
+  <span ng-if="userCtrl.infoSaved">Your information has been saved.</span>
+</form>
+</fieldset>
+</div>
